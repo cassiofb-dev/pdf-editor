@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  pdf-editor:
+    container_name: pdf-editor
+    image: node:lts-alpine
+    working_dir: "/pdf-editor"
+    user: 1000:1000
+    command: sh -c "yarn && yarn start --port 5000 --host 0.0.0.0"
+    ports:
+      - 5000:5000
+    volumes:
+      - ./:/pdf-editor
